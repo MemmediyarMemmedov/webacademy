@@ -1,0 +1,24 @@
+﻿RewriteEngine on
+
+Options -Indexes
+
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php
+
+
+
+
+ErrorDocument 404 http://localhost/135blog/
+ErrorDocument 403 http://localhost/135blog/
+
+
+#RewriteRule ^sitemap.xml$ sitemap.php [NC,L]
+
+
+RewriteRule ^blog-([0-9a-zA-Z-_]+)-([0-9]+)$  blog-details.php?web=$1&blog_id=$2 [L,QSA]
+RewriteRule ^training-([0-9a-zA-Z-_]+)-([0-9]+)$  training-details.php?web=$1&training_id=$2 [L,QSA]
+
+RewriteRule ^service-([0-9a-zA-Z-_]+)-([0-9]+)$  service-details.php?web=$1&service_id=$2 [L,QSA]
+
